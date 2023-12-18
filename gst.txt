@@ -1,1 +1,0 @@
-gst-launch-1.0 -e multifilesrc location="/runs/detect/old/20231216033829801957/frames/watch_v_KMXOy9F0n7k%d.png" index=0 caps="image/png,framerate=1/100,width=640,height=480" loop=false ! pngdec ! videorate ! autovideosink sync=false
