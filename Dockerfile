@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-RUN apt update
+RUN apt update --fix-missing
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libgstreamer1.0-dev\
 									libgstreamer-plugins-base1.0-dev\
@@ -16,7 +16,12 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libgstreamer1.0-dev\
 									gstreamer1.0-alsa\
 									gstreamer1.0-gl\
 									gstreamer1.0-gtk3
+
+RUN apt update --fix-missing
+
 RUN pkg-config --cflags --libs gstreamer-1.0
+
+RUN apt update --fix-missing
 
 WORKDIR /app
 COPY . /app
